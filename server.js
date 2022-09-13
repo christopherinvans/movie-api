@@ -1,10 +1,11 @@
 const url = require('url');
 const http = require('http');
+const fs = require('fs');
 
 http.createServer((request, response) => {
-    let addr = request.url,
-      q = url.parse(addr, true),
-      filePath = '';
+    let addr = request.url;
+    let q = url.parse(addr, true);
+   let filePath = '';
 
       fs.appendFile('log.txt', 'URL: ' + addr + '\nTimestamp: ' + new Date() + '\n\n', (err) => {
         if (err) {
@@ -30,7 +31,10 @@ http.createServer((request, response) => {
     console.log("Q: ", q); 
 
   response.writeHead(200, {'Content-Type': 'text/plain'});
-  response.end('Hello Node!\n');
+  response.write(data);
+  response.end('Literally anything else\n');
+      });
 }).listen(8080);
 
-console.log('My first Node test server is running on Port 8080.')});
+console.log('My first Node test server is running on Port 8080.');
+
