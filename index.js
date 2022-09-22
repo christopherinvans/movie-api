@@ -1,5 +1,8 @@
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
+
+app.use(morgan('common'));
 
 let topMovies = [
     {
@@ -17,7 +20,8 @@ let topMovies = [
 ];
 
 app.get('/', (req, res) => {
-    res.send('Abandon Hope All Ye Who Enter Here!');
+    res.send('Abandon Hope All Ye Who Enter Here!'); 
+    // UPDATE TO SERIOUS MESSAGE LATER
 });
 
 app.get('/documentation', (req, res) => {                  
