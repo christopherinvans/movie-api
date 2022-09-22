@@ -1,16 +1,13 @@
 const express = require('express'),
+    app = express(),
     morgan = require('morgan'),
     fs = require('fs'), 
     path = require('path');
     bodyParser = require('body-parser'),
     methodOverride = require('method-override');
 
-const app = express();
-const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), {flags: 'a'})
-
-app.use(morgan('combined', {stream: accessLogStream}));
-
-app.use('/documentation.html', express.static('public'));
+    app.use(morgan('common'));
+    app.use('/documentation.html', express.static('public'));
 
 let topMovies = [
     {
