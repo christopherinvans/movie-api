@@ -1,8 +1,16 @@
-const express = require('express');
-const morgan = require('morgan');
-const app = express();
+const express = require('express'),
+    morgan = require('morgan'),
+    fs = require('fs'), 
+    path = require('path');
+    bodyParser = require('body-parser'),
+    methodOverride = require('method-override');
 
-app.use(morgan('common'));
+const app = express();
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'log.txt'), {flags: 'a'})
+
+app.use(morgan('combined', {stream: accessLogStream}));
+
+app.use('/documentation.html', express.static('public'));
 
 let topMovies = [
     {
@@ -31,6 +39,21 @@ app.get('/documentation', (req, res) => {
 app.get('/movies', (req, res) => {
     res.json(topMovies);
 });
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Ah, nuts!');
+  });
+
+app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+  
+  app.use(bodyParser.json());
+  app.use(methodOverride());
+  
+  app.use((err, req, res, next) => {
+  });
 
 app.listen(8080, () => {
     console.log('Your app is listening on port 8080.');
