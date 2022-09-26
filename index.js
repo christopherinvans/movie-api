@@ -1,10 +1,10 @@
-const express = require('express'),
-    app = express(),
-    morgan = require('morgan'),
-    fs = require('fs'), 
+const express = require('express');
+    morgan = require('morgan');
+    fs = require('fs');
     path = require('path');
-    bodyParser = require('body-parser'),
+    bodyParser = require('body-parser');
     methodOverride = require('method-override');
+    app = express();
 
     app.use(morgan('common'));
     app.use(express.static('public'));
