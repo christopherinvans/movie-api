@@ -7,7 +7,22 @@ const express = require('express'),
     methodOverride = require('method-override');
 
     app.use(morgan('common'));
-    app.use('/documentation.html', express.static('public'));
+    app.use(express.static('public'));
+
+    app.use((err, req, res, next) => {
+        console.error(err.stack);
+        res.status(500).send('Ah, nuts!');
+      });
+    
+    app.use(bodyParser.urlencoded({
+        extended: true
+      }));
+      
+      app.use(bodyParser.json());
+      app.use(methodOverride());
+      
+      app.use((err, req, res, next) => {
+      });
 
 let topMovies = [
     {
@@ -36,21 +51,6 @@ app.get('/documentation', (req, res) => {
 app.get('/movies', (req, res) => {
     res.json(topMovies);
 });
-
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Ah, nuts!');
-  });
-
-app.use(bodyParser.urlencoded({
-    extended: true
-  }));
-  
-  app.use(bodyParser.json());
-  app.use(methodOverride());
-  
-  app.use((err, req, res, next) => {
-  });
 
 app.listen(8080, () => {
     console.log('Your app is listening on port 8080.');
