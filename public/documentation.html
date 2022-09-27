@@ -9,4 +9,92 @@
 <body>
     <header>MyMovieApp</header>
     <p>Welcome to MyMovieApp, a project that utilizes a REST API to interact with a database of movie info. Enjoy!</p>
-</body>
+    <table>
+      <tr>
+        <th>Business Logic</th>
+        <th>URL</th>
+        <th>HTTP Method</th>
+        <th>Request body data format</th>
+        <th>Response body data format</th>
+      </tr>
+      <tr>
+        <td>Get a list of all movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about all movies in the database</td>
+      </tr>
+      <tr>
+        <td>Get data about a single movie by name</td>
+        <td>/movies/[Name]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about a single movie, containing description, year, genre, director, image URL, whether movie is featured or not. Example:
+          {
+            name: "The Cat in the Hat",
+            year: 2003,
+            genre: "Comedy",
+            director: "Bo Welch",
+            image URL: "sampleurl",
+            featured: no
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Get data about a genre by name/title</td>
+        <td>/genre/[Name]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A text message describing the genre of film</td>
+      </tr>
+      <tr>
+        <td>Get data about a director by name</td>
+        <td>/director/[Name]</td>
+        <td>GET</td>
+        <td>None</td>
+        <td>A JSON object holding data about a single director by name, including bio, birth year and death year. Example:
+          {
+            name: "Bo Welch",
+            bio: "insert short blurb here",
+            birth year: 1951,
+            death year: TBD
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Register new user</td>
+        <td>/users/[Name]</td>
+        <td>POST</td>
+        <td>None</td>
+        <td>A text message indicating whether the user was successfully added</td>
+      </tr>
+      <tr>
+        <td>Allow users to update user info (username)</td>
+        <td>/users/[Name]</td>
+        <td>PUT</td>
+        <td>None</td>
+        <td>A text message indicating whether username change was successfully changed</td>
+      </tr>
+      <tr>
+        <td>Allow users to add movie to favorites list</td>
+        <td>/movies/myfavorites/[Name]</td>
+        <td>POST</td>
+        <td>None</td>
+        <td>A text message indicating whether movie was added to favorites list</td>
+      </tr>
+      <tr>
+        <td>Allow users to remove movie from favorites</td>
+        <td>/movies/myfavorites/[Name]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message indicating whether movie was removed from favorites list</td>
+      </tr>
+      <tr>
+        <td>Allow existing users to derigister</td>
+        <td>/users/[Name]</td>
+        <td>DELETE</td>
+        <td>None</td>
+        <td>A text message indicating whether user was successfully removed</td>
+      </tr>
+    </table>
+  </body>
