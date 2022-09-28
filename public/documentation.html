@@ -52,12 +52,12 @@
         <td>/director/[Name]</td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about a single director by name, including bio, birth year and death year. Example:
-          {
-            name: "Bo Welch",
-            bio: "insert short blurb here",
-            birth year: 1951,
-            death year: TBD
+        <td>A JSON object holding data about a single director by name, including bio, birth year and death year. Example:<br>
+          {<br>
+            name: "Bo Welch",<br>
+            bio: "insert short blurb here",<br>
+            birth year: 1951,<br>
+            death year: TBD<br>
           }
         </td>
       </tr>
@@ -79,8 +79,26 @@
         <td>Allow users to add movie to favorites list</td>
         <td>/movies/myfavorites/[Name]</td>
         <td>POST</td>
-        <td>None</td>
-        <td>A text message indicating whether movie was added to favorites list</td>
+        <td>A JSON object holding data about the movie to add. Example:<br>
+          {<br>
+            name: "The Cat in the Hat",<br>
+            year: 2003,<br>
+            genre: "Comedy",<br>
+            director: "Bo Welch",<br>
+            image URL: "sampleurl",<br>
+            featured: no<br>
+          }
+        </td>
+        <td>A JSON object holding data about the movie that was added. Example:<br>
+          {<br>
+            name: "The Cat in the Hat",<br>
+            year: 2003,<br>
+            genre: "Comedy",<br>
+            director: "Bo Welch",<br>
+            image URL: "sampleurl",<br>
+            featured: no<br>
+          }
+        </td>
       </tr>
       <tr>
         <td>Allow users to remove movie from favorites</td>
