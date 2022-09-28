@@ -11,17 +11,17 @@ const express = require('express');
     app.use(express.static('public'));
     app.use(bodyParser.json());
 
-let topMovies = [
+let movies = [
     {
-        title: 'Forgetting Sarah Marshall',
+        name: 'Forgetting Sarah Marshall',
         year: '2008'
     },
     {
-        title: 'What We Do in the Shadows',
+        name: 'What We Do in the Shadows',
         year: '2014'
     },
     {
-        title: 'Jurassic Park',
+        name: 'Jurassic Park',
         year: '1993'
     }
 ];
@@ -44,8 +44,7 @@ app.get('/movies', (req, res) => {
 
 // GET DATA ABOUT SINGLE MOVIE BY NAME
 app.get('/movies/:name', (req, res) => {
-    res.json(movies.find((name) =>
-      { return movie.name === req.params.name }));
+    res.send('Here is Shrek the Third, as requested')
   });
 
 // GET DATA ABOUT GENRE
