@@ -54,7 +54,7 @@ app.get('/genres/:genre', (req, res) => {
 
 // GET DATA ABOUT DIRECTOR
 app.get('/directors/:name', (req, res) => {
-    res.send('JSON object with director data')
+    res.send('This will be a JSON object with director data')
 });
 
 // REGISTER NEW USER
@@ -114,6 +114,8 @@ app.delete('/users/:id', (req, res) => {
     if (user) {
       users = users.filter((obj) => { return obj.id !== req.params.id });
       res.status(201).send('User ' + req.params.id + ' was deleted.');
+    } else {
+        res.status(404).send('User not found');
     }
   });
 
