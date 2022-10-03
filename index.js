@@ -123,14 +123,15 @@ app.delete('/movies/myfavorites:name', (req, res) => {
 
 // DEREGISTER
 app.delete('/users/:id', (req, res) => {
-    let user = users.find((user) => { return user.id === req.params.id });
+    res.send('User [id] was deleted!')
+    // let user = users.find((user) => { return user.id === req.params.id });
   
-    if (user) {
-      users = users.filter((obj) => { return obj.id !== req.params.id });
-      res.status(201).send('User ' + req.params.id + ' was deleted.');
-    } else {
-        res.status(404).send('User not found');
-    }
+    // if (user) {
+    //   users = users.filter((obj) => { return obj.id !== req.params.id });
+    //   res.status(201).send('User ' + req.params.id + ' was deleted.');
+    // } else {
+    //     res.status(404).send('User not found');
+    // }
   });
 
 // ERROR HANDLING
