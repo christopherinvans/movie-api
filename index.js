@@ -28,6 +28,19 @@ let movies = [
 
 let myFavorites = [];
 
+let users = [
+    {
+        name: 'Marky Mark',
+        id: 1,
+        dob: 06/05/1971,
+    },
+    {
+        name: 'The Funky Bunch',
+        id: 2,
+        dob: 06/05/1971,
+    }
+];
+
 app.get('/', (req, res) => {
     res.send('Abandon Hope All Ye Who Enter Here!'); 
     // UPDATE TO SERIOUS MESSAGE LATER
@@ -73,14 +86,15 @@ app.post('/users', (req, res) => {
 
 // CHANGE USERNAME
 app.put('/users/:name', (req, res) => {
-    let user = users.find((user) => { return user.name === req.params.name });
+    res.send('Username change successful!')
+//     let user = users.find((user) => { return user.name === req.params.name });
   
-    if (user) {
-      user.name[req.params.name] = parseInt(req.params.grade);
-      res.status(201).send('User name ' + req.params.name + ' was changed.');
-    } else {
-      res.status(404).send('User name ' + req.params.name + ' was not found.');
-    }
+//     if (user) {
+//       user.name[req.params.name] = parseInt(req.params.grade);
+//       res.status(201).send('User name ' + req.params.name + ' was changed.');
+//     } else {
+//       res.status(404).send('User name ' + req.params.name + ' was not found.');
+//     }
   });
 
 // ADD MOVIE TO FAVORITES
