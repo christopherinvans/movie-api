@@ -50,10 +50,7 @@
         <td>/genre/[Name]</td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object containing Genre info, as follows:<br>
-            {<br>
-              
-            }
+        <td>A JSON object containing Genre info.
         </td>
       </tr>
       <tr>
@@ -61,13 +58,7 @@
         <td>/directors/[Name]</td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about a single director by name, including bio, birth year and death year. Example:<br>
-          {<br>
-            name: "Bo Welch",<br>
-            bio: "insert short blurb here",<br>
-            birth year: 1951,<br>
-            death year: TBD<br>
-          }
+        <td>A JSON object holding data about a single director by name.
         </td>
       </tr>
       <tr>
@@ -89,30 +80,21 @@
         <td>/users/[Name]</td>
         <td>PUT</td>
         <td>None</td>
-        <td>A text message indicating success</td>
+        <td>A JSON object containing the new user's data, formatted as follows:<br>
+          {<br>
+            Username: example123<br>
+            Password: hunter2<br>
+            Email: name@name.com<br>
+            Birthday: 2001-01-14<br>
+              }
+            </td>
       </tr>
       <tr>
         <td>Allow users to add movie to favorites list</td>
         <td>/movies/myfavorites/[Name]</td>
         <td>POST</td>
-        <td>A JSON object holding data about the movie to add. Example:<br>
-          {<br>
-            name: "The Cat in the Hat",<br>
-            year: 2003,<br>
-            genre: "Comedy",<br>
-            director: "Bo Welch",<br>
-            image URL: "sampleurl",<br>
-            featured: no<br>
-          }
-        </td>
-        <td>A JSON object holding data about the movie that was added. Example:<br>
-          {<br>
-            name: "The Cat in the Hat",<br>
-            year: 2003,<br>
-            genre: "Comedy",<br>
-            director: "Bo Welch",<br>
-            image URL: "sampleurl",<br>
-            featured: no<br>
+        <td>A JSON object holding an array of the user's favorite movies.</td>
+        <td>A JSON object holding data about the movie that was added.
           }
         </td>
       </tr>
