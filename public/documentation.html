@@ -29,14 +29,19 @@
         <td>/movies/[Name]</td>
         <td>GET</td>
         <td>None</td>
-        <td>A JSON object holding data about a single movie, containing description, year, genre, director, image URL, whether movie is featured or not. Example:<br>
-          {<br>
-            name: "The Cat in the Hat",<br>
-            year: 2003,<br>
-            genre: "Comedy",<br>
-            director: "Bo Welch",<br>
-            image URL: "sampleurl",<br>
-            featured: no<br>
+        <td>A JSON object holding data about a single movie. Example:<br>
+            Title: "The Cat in the Hat",<br>
+            Description: "Mike Meyers is unhinged and it is glorious.",<br>
+            Genre: {<br>
+                Name: "Comedy",<br>
+                Description: "Giggle fodder"<br>
+            Director: {<br>
+                Name: "Bo Welch",<br>
+                Bio: "He made movies and stuff"<br>
+            }<br>
+            Actors: "Mike Meyers and others",<br>
+            ImagePath: "sample.url",<br>
+            Featured: N<br>
           }
         </td>
       </tr>
@@ -45,7 +50,11 @@
         <td>/genre/[Name]</td>
         <td>GET</td>
         <td>None</td>
-        <td>A text message describing the genre of film</td>
+        <td>A JSON object containing Genre info, as follows:<br>
+            {<br>
+              
+            }
+        </td>
       </tr>
       <tr>
         <td>Get data about a director by name</td>
@@ -66,14 +75,21 @@
         <td>/users/[Name]</td>
         <td>POST</td>
         <td>None</td>
-        <td>A text message indicating whether the user was successfully added</td>
+        <td>A JSON object containing the new user's data, formatted as follows:<br>
+          {<br>
+            Username: example123<br>
+            Password: hunter2<br>
+            Email: name@name.com<br>
+            Birthday: 2001-01-14<br>
+          }
+        </td>
       </tr>
       <tr>
         <td>Allow users to update user info (username)</td>
         <td>/users/[Name]</td>
         <td>PUT</td>
         <td>None</td>
-        <td>A text message indicating whether username change was successfully changed</td>
+        <td>A text message indicating success</td>
       </tr>
       <tr>
         <td>Allow users to add movie to favorites list</td>
