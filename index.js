@@ -5,11 +5,15 @@ const express = require('express');
     path = require('path');
     methodOverride = require('method-override');
     uuid = require('uuid');
-    app = express();
-    mongoose = require('mongoose');
-    Models = require('./models.js');
-    Movies = Models.Movie;
-    Users = Models.User;
+    const app = express();
+    const mongoose = require('mongoose');
+    const Models = require('./models.js');
+    const { check, validationResult } = require('express-validator');
+    
+    const Movies = Models.Movie;
+    const Users = Models.User;
+    const Genres = Models.Genre;
+    const Directors = Models.Director;
 
     app.use(morgan('common'));
     app.use(express.static('public'));
