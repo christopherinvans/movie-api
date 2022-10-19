@@ -17,6 +17,13 @@ const express = require('express');
     app.use(morgan('common'));
     app.use(express.static('public'));
     app.use(bodyParser.json());
+    // app.use(bodyParser.urlencoded({ extended: true })); from curriculum
+
+    let auth = require('./auth')(app);
+
+    const passport = require('passport');
+    require('./passport');
+
 
     mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
