@@ -42,11 +42,11 @@ const express = require('express');
     require('./passport');
 
 
-    mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+    // mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+    mongoose.connect('mongodb+srv://myFlixDBAdmin:chunkyfucker@myflixdb.kthrzde.mongodb.net/myFlixDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get('/', (req, res) => {
-    res.send('IT PUTS THE LOTION ON ITS SKIN'); 
-    // UPDATE TO SERIOUS MESSAGE LATER
+    res.send('Welcome to the myFlix movie app!');
 });
 
 app.get('/documentation', (req, res) => {                  
