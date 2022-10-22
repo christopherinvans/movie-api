@@ -43,7 +43,7 @@ const express = require('express');
 
 
     // mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
-    mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get('/', (req, res) => {
     res.send('Welcome to the myFlix movie app!');
@@ -254,7 +254,7 @@ app.use(bodyParser.urlencoded({
   
   app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).send('Ah, nuts!');
+    res.status(500).send('Something broke!');
   });
 
   const port = process.env.PORT || 8080;
