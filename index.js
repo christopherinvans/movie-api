@@ -5,11 +5,11 @@ const express = require('express');
     path = require('path');
     methodOverride = require('method-override');
     uuid = require('uuid');
-    const app = express();
-    const mongoose = require('mongoose');
-    const Models = require('./models.js');
+    app = express();
+    mongoose = require('mongoose');
     const { check, validationResult } = require('express-validator');
     
+    const Models = require('./models.js');
     const Movies = Models.Movie;
     const Users = Models.User;
     // const Genres = Models.Genre;
@@ -22,19 +22,6 @@ const express = require('express');
 
     const cors = require('cors');
     app.use(cors());
-    // REPLACE APP.USE CORS WITH THE FOLLOWING CODE
-    // let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
-
-    // app.use(cors({
-    //   origin: (origin, callback) => {
-    //     if(!origin) return callback(null, true);
-    //     if(allowedOrigins.indexOf(origin) === -1){ // If a specific origin isn’t found on the list of allowed origins
-    //       let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
-    //       return callback(new Error(message ), false);
-    //     }
-    //     return callback(null, true);
-    //   }
-    // }));
 
     let auth = require('./auth')(app);
 
