@@ -12,8 +12,8 @@ const express = require('express');
     const Models = require('./models.js');
     const Movies = Models.Movie;
     const Users = Models.User;
-    // const Genres = Models.Genre;
-    // const Directors = Models.Director;
+    const Genres = Models.Genre;
+    const Directors = Models.Director;
 
     app.use(morgan('common'));
     app.use(express.static('public'));
@@ -41,7 +41,7 @@ app.get('/documentation', (req, res) => {
 });
 
 // SHOW ALL MOVIES
-app.get('/movies', (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
     Movies.find()
       .then((movies) => {
         res.status(201).json(movies);
@@ -244,6 +244,7 @@ app.use(bodyParser.urlencoded({
     res.status(500).send('Something broke!');
   });
 
+  // const port = process.env.PORT || 8080;
   const port = process.env.PORT ;
   app.listen(port, '0.0.0.0',() => {
    console.log('Listening on Port ' + port);
