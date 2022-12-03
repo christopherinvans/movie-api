@@ -41,7 +41,7 @@ const express = require('express');
     require('./passport');
 
 
-  
+  // testtest
     mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.get('/', (req, res) => {
