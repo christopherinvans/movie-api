@@ -42,7 +42,7 @@ const express = require('express');
 
 
   // testtest
-  mongoose.connect(process.env.CONNECTION_URI, { 
+  mongoose.connect("mongodb+srv://myFlixDBAdmin:chunkyfucker@myflixdb.kthrzde.mongodb.net/myFlixDB?retryWrites=true&w=majority", { 
     useNewUrlParser: true, useUnifiedTopology: true})
     .then( console.log('DB Connected') );
     
@@ -258,8 +258,8 @@ app.use(bodyParser.urlencoded({
     res.status(500).send('Something broke!');
   });
 
-  // const port = process.env.PORT || 8080;
-  const port = process.env.PORT ;
+  const port = process.env.PORT || 8080;
+  // const port = process.env.PORT ;
   app.listen(port, '0.0.0.0',() => {
    console.log('Listening on Port ' + port);
   });
