@@ -62,6 +62,7 @@ app.get('/documentation', (req, res) => {
 // SHOW ALL MOVIES
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
     Movies.find()
+    .populate('ImagePath')
       .then((movies) => {
         res.status(201).json(movies);
       })
