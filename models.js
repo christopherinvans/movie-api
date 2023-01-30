@@ -5,7 +5,7 @@ const { string } = require('prop-types');
 let movieSchema = mongoose.Schema({
     Title: {type: String, required: true},
     Description: {type: String, required: true},
-    ImagePath: string, 
+    ImagePath: String, 
     Genre: {
       Name: String,
       Description: String
