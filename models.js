@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const { string } = require('prop-types');
 
 let movieSchema = mongoose.Schema({
     Title: {type: String, required: true},
     Description: {type: String, required: true},
+    ImagePath: string, 
     Genre: {
       Name: String,
       Description: String
