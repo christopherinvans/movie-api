@@ -50,8 +50,9 @@ const express = require('express');
   // mongoose.connect("mongodb+srv://myFlixDBAdmin:chunkyfucker@myflixdb.kthrzde.mongodb.net/myFlixDB?retryWrites=true&w=majority", { 
   //   useNewUrlParser: true, useUnifiedTopology: true})
   //   .then( console.log('DB Connected') );
-  mongoose.connect(process.env.CONNECTION_URI, () => {
-    console.log('Mongo connected')
+  mongoose.connect(process.env.CONNECTION_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   });
     
 app.get('/', (req, res) => {
