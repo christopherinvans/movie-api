@@ -47,9 +47,12 @@ const express = require('express');
 
 
   // testtest
-  mongoose.connect("mongodb+srv://myFlixDBAdmin:chunkyfucker@myflixdb.kthrzde.mongodb.net/myFlixDB?retryWrites=true&w=majority", { 
-    useNewUrlParser: true, useUnifiedTopology: true})
-    .then( console.log('DB Connected') );
+  // mongoose.connect("mongodb+srv://myFlixDBAdmin:chunkyfucker@myflixdb.kthrzde.mongodb.net/myFlixDB?retryWrites=true&w=majority", { 
+  //   useNewUrlParser: true, useUnifiedTopology: true})
+  //   .then( console.log('DB Connected') );
+  mongoose.connect(process.env.CONNECTION_URI, () => {
+    console.log('Mongo connected')
+  });
     
 app.get('/', (req, res) => {
     res.send('Welcome to the myFlix movie app!');
