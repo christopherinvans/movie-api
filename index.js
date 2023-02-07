@@ -50,7 +50,7 @@ const express = require('express');
   // mongoose.connect("mongodb+srv://myFlixDBAdmin:chunkyfucker@myflixdb.kthrzde.mongodb.net/myFlixDB?retryWrites=true&w=majority", { 
   //   useNewUrlParser: true, useUnifiedTopology: true})
   //   .then( console.log('DB Connected') );
-  mongoose.connect( 'mongodb://localhost:27017/myFlixDB', {
+  mongoose.connect(process.env.CONNECTION_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
@@ -64,7 +64,7 @@ app.get('/documentation', (req, res) => {
 });
 
 // SHOW ALL MOVIES
-app.get('/movies', (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
     Movies.find()
     .populate('ImagePath')
       .then((movies) => {
