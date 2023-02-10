@@ -6,7 +6,8 @@ const express = require('express');
     methodOverride = require('method-override');
     uuid = require('uuid');
     app = express();
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    dotenv = require('dotenv');
     const { check, validationResult } = require('express-validator');
     
     const Models = require('./models.js');
@@ -14,6 +15,7 @@ const express = require('express');
     const Users = Models.User;
     const Genres = Models.Genre;
     const Directors = Models.Director;
+    dotenv.config({ path: './config.env' });
 
     app.use(morgan('common'));
     app.use(express.static('public'));
@@ -65,7 +67,7 @@ app.get('/documentation', (req, res) => {
 });
 
 // SHOW ALL MOVIES
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies', (req, res) => {
     Movies.find()
     .populate('ImagePath')
       .then((movies) => {
