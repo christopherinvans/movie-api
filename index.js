@@ -30,7 +30,7 @@ const express = require('express');
       'http://localhost:8080', 
       'https://enigmatic-river-99618.herokuapp.com/', 
       'https://myflixcsj.netlify.app/',
-      'https://localhost:4200'
+      'http://localhost:4200'
     ]
 
     app.use(cors({
