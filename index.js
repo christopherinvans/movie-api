@@ -49,11 +49,6 @@ const express = require('express');
     const passport = require('passport');
     require('./passport');
 
-
-  // testtest
-  // mongoose.connect("mongodb+srv://myFlixDBAdmin:chunkyfucker@myflixdb.kthrzde.mongodb.net/myFlixDB?retryWrites=true&w=majority", { 
-  //   useNewUrlParser: true, useUnifiedTopology: true})
-  //   .then( console.log('DB Connected') );
   mongoose.connect(process.env.CONNECTION_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
