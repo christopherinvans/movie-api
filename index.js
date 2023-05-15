@@ -28,9 +28,10 @@ const express = require('express');
       'http://localhost:1234', 
       'http://localhost:27017',
       'http://localhost:8080', 
-      'https://enigmatic-river-99618.herokuapp.com/', 
-      'https://myflixcsj.netlify.app/',
-      'http://localhost:4200'
+      'https://enigmatic-river-99618.herokuapp.com', 
+      'https://myflixcsj.netlify.app',
+      'http://localhost:4200',
+      'https://christopherinvans.github.io'
     ]
 
     app.use(cors({
